@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinil do Amor</title>
+  <link rel="stylesheet" href="kaio.css">
+</head>
+<body>
+
+  <h1>Eu te amo 💖</h1>
+
+  <!-- Flor SVG -->
+  <svg class="flower" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="6" fill="#e91e63"/>
+    <path d="M32 10c6 0 10 8 10 8s-4-10-10-10-10 10-10 10 4-8 10-8z" fill="#f48fb1"/>
+    <path d="M32 54c-6 0-10-8-10-8s4 10 10 10 10-10 10-10-4 8-10 8z" fill="#f48fb1"/>
+    <path d="M10 32c0-6 8-10 8-10s-10 4-10 10 10 10 10 10-8-4-8-10z" fill="#f48fb1"/>
+    <path d="M54 32c0 6-8 10-8 10s10-4 10-10-10-10-10-10 8 4 8 10z" fill="#f48fb1"/>
+  </svg>
+
+  <!-- Disco de Vinil -->
+  <div class="vinyl" onclick="abrirVideo()"></div>
+  <div class="heart">❤️</div>
+
+  <!-- Botão de música -->
+  <button class="music-btn" onclick="tocarMusica()">🎶 Tocar Música</button>
+  <button class="stop-btn" onclick="pararMusica()">⏸️ Parar Música</button>
+
+  <!-- Áudio -->
+  <audio id="musicaRomantica" src="Drake - Champagne Poetry (Audio).mp3"></audio>
+
+  <!-- Script -->
+  <script src="kaio.js"></script>
+
+</body>
+</html>

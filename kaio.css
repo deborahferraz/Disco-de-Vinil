@@ -1,0 +1,110 @@
+body {
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px #a00;
+  }
+  
+  .vinyl {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #111 60%, #333 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: spin 8s linear infinite;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .vinyl::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #e91e63 0%, #c2185b 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+  }
+  
+  .heart {
+    position: absolute;
+    bottom: 40px;
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+  }
+  
+  .flower {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    animation: bloom 6s ease-in-out infinite;
+  }
+  
+  .music-btn {
+    margin-top: 20px;
+    background: #fff;
+    color: #e91e63;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+  
+  .music-btn:hover {
+    background: #f8bbd0;
+    transform: scale(1.05);
+  }
+  .music-btn, .stop-btn {
+    margin-top: 20px;
+    background: #fff;
+    color: #e91e63;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+  
+  .music-btn:hover, .stop-btn:hover {
+    background: #f8bbd0;
+    transform: scale(1.05);
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
+  @keyframes bloom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(5deg); }
+  }
+  
