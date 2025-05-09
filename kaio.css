@@ -20,52 +20,112 @@ h1 {
 .vinyl {
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, #111 60%, #333 100%);
   border-radius: 50%;
   position: relative;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(255, 255, 255, 0.2); /* Brilho interno */
-  animation: spin 8s linear infinite;
   cursor: pointer;
+  animation: spin 8s linear infinite;
   z-index: 2;
-  background-image: 
-    radial-gradient(circle, #111 60%, #333 100%),
-    linear-gradient(45deg, transparent 0%, transparent 1px, #333 1px, #333 2px, transparent 2px, transparent 3px),
-    linear-gradient(135deg, transparent 0%, transparent 1px, #333 1px, #333 2px, transparent 2px, transparent 3px),
-    url('textura-vinil.png'); /* Adicione uma imagem de textura aqui para um efeito mais realista */
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: radial-gradient(circle at center, #222 0%, #000 80%);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
+              inset 0 0 10px rgba(255, 255, 255, 0.05),
+              inset 0 0 40px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
 
-.vinyl::before {
+  .vinyl::before {
+  /* já temos faixas, agora adicionamos reflexo */
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 3px
+    ),
+    linear-gradient(120deg, rgba(255,255,255,0.08), transparent 70%);
+  z-index: 1;
+}
+
+
+/* Etiqueta central fofa */
+.vinyl::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle, #e91e63 0%, #c2185b 100%);
+   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+  animation: explodeBrilho 0.6s ease-out;
+  z-index: 9999;
 }
 
-.vinyl::after {
-  content: "";
+/* Animação do brilho */
+@keyframes explodeBrilho {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.etiqueta-img {
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
-  width: 15px;
-  height: 15px;
-  background: #111;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.buraco-central {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: #1d1d1d;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  z-index: 999;
+}
+.brilhos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: girarBrilhos 12s linear infinite;
+  z-index: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 30%),
+              radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1) 0%, transparent 30%);
+}
+
+@keyframes girarBrilhos {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .heart {
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   font-size: 2rem;
   animation: pulse 2s infinite;
 }
@@ -130,3 +190,29 @@ h1 {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2) rotate(5deg); }
 }
+.recado {
+  position: absolute;
+  left: calc(50% - 300px); /* um pouco à esquerda do centro */
+  top: calc(50% - 30px);   /* alinhado verticalmente ao disco */
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: pulse 2s infinite;
+  z-index: 3;
+}
+
+.recado .flecha {
+  font-size: 2rem;
+  color: #e91e63;
+  margin-right: 8px;
+  transform: rotate(10deg); /* direção ajustada para o disco */
+}
+
+.recado .texto {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.1rem;
+  color: #c2185b;
+}
+
