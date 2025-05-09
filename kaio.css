@@ -159,6 +159,8 @@ h1 {
 }
 
 .music-btn, .stop-btn {
+  position:relative;
+  z-index:10;
   margin-top: 20px;
   background: #fff;
   color: #e91e63;
@@ -169,6 +171,9 @@ h1 {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: all 0.3s;
+}
+body {
+  overflow-x: hidden; /* mas NÃO use overflow: hidden em Y */
 }
 
 .music-btn:hover, .stop-btn:hover {
